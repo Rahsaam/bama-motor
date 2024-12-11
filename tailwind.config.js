@@ -8,7 +8,11 @@ export default {
     './src/app.vue', 
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        vazir: ['vazir', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

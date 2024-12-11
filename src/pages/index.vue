@@ -1,8 +1,8 @@
 <template>
   <div class="container-field">
     <div class="container">
-      <h1>Welcome to the homepage</h1>
-      <AppAlert> This is an auto-imported component </AppAlert>
+      <h1 class="font-vazir text-xl">سلام دنیا!</h1>
+      <p>این متن از فونت وزیر استفاده می‌کند.</p>
     </div>
   </div>
 </template>

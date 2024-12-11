@@ -2,7 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+    font-family: 'vazir';
+    src: url('../fonts/Vazir.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+}
 
+body {
+    font-family: 'vazir', sans-serif;
+  }
 
 .container-field {
   width: 100%;
