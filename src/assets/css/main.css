@@ -13,9 +13,15 @@ body {
     font-family: 'vazir', sans-serif;
   }
 
+.container-header {
+  width: 85%;
+  margin: 0 auto;
+  direction: rtl;
+}
+
 .container-field {
-  width: 100%;
-  margin: auto;
+  width: 62%;
+  margin: 0 auto;
   direction: rtl;
 }
 
