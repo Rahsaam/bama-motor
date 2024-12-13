@@ -16,7 +16,7 @@ export function useProductFilters() {
       year: 1403,
       mileAge: 12500,
       auth: true,
-      seller: 'person'
+      seller: 'شخصی',
     },
     {
       id: 2,
@@ -31,7 +31,7 @@ export function useProductFilters() {
       year: 1398,
       mileAge: 7000,
       auth: false,
-      seller: 'company',
+      seller: 'نمایشگاه',
     },
     {
       id: 3,
@@ -46,7 +46,7 @@ export function useProductFilters() {
       year: 1400,
       mileAge: 5500,
       auth: false,
-      seller: 'person',
+      seller: 'شخصی',
     },
     {
       id: 4,
@@ -61,7 +61,7 @@ export function useProductFilters() {
       year: 1403,
       mileAge: 0,
       auth: false,
-      seller: 'company',
+      seller: 'نمایشگاه',
     },
   ])
 
@@ -73,7 +73,7 @@ export function useProductFilters() {
     price: { min: null, max: null },
     mileage: { min: null, max: null },
     model: [],
-    seller: null
+    seller: null,
   })
 
   // فیلتر محصولات
@@ -133,6 +133,11 @@ export function useProductFilters() {
         filters.value.mileage.max !== null &&
         product.mileage > filters.value.mileage.max
       ) {
+        return false
+      }
+
+      // فیلتر بر اساس فروشنده
+      if (filters.value.seller && product.seller !== filters.value.seller) {
         return false
       }
 
