@@ -1,17 +1,20 @@
 <template>
   <ProductLayout>
     <template #filters>
-      <ProductFilters :filters="filters" @update="updateFilters" />
+      <ProductFilters />
     </template>
     <template #products>
-      <ProductCard :items="products" />
-      <ProductCard :items="products" />
-      <ProductCard :items="products" />
-      <ProductCard :items="products" />
+      <ProductCard
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
     </template>
   </ProductLayout>
 </template>
 
 <script setup>
+const { filters, products } = useProductFilters()
 
+provide('productFilters', filters)
 </script>
