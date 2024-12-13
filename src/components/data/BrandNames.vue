@@ -31,7 +31,7 @@
       class="mt-1 max-h-72 overflow-y-auto p-2 border border-gray-300 rounded"
     >
       <h2 class="text-xl font-bold mt-4">مدل‌های {{ selectedBrand }}</h2>
-      <UiCheckboxInput :filteredModels="filteredModels" />
+      <UiCheckboxModels :filteredModels="filteredModels" />
     </div>
   </div>
 </template>
@@ -96,6 +96,7 @@ const selectedBrand = computed(() => filters.value?.brand || null)
 const selectBrand = (brand) => {
   showBrand.value = false
   filters.value.brand = brand
+  filters.value.model = []
   console.log(filters.value)
 }
 

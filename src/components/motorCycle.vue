@@ -5,7 +5,7 @@
     </template>
     <template #products>
       <ProductCard
-        v-for="product in products"
+        v-for="product in filteredProducts"
         :key="product.id"
         :product="product"
       />
@@ -14,7 +14,7 @@
 </template>
 
 <script setup>
-const { filters, products } = useProductFilters()
+const { filters, filteredProducts } = useProductFilters()
 
 provide('productFilters', filters)
 </script>

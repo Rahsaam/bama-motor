@@ -6,7 +6,7 @@ export function useProductFilters() {
     {
       id: 1,
       city: 'تهران',
-      scity: 'ونک',
+      town: 'ونک',
       brand: 'باجاج',
       model: 'باجاج مدل 1',
       price: 300,
@@ -16,11 +16,12 @@ export function useProductFilters() {
       year: 1403,
       mileAge: 12500,
       auth: true,
+      seller: 'person'
     },
     {
       id: 2,
       city: 'مشهد',
-      scity: 'بلوار کشاورز',
+      town: 'بلوار کشاورز',
       brand: 'پالس',
       model: 'پالس مدل 1',
       price: 150,
@@ -30,11 +31,12 @@ export function useProductFilters() {
       year: 1398,
       mileAge: 7000,
       auth: false,
+      seller: 'company',
     },
     {
       id: 3,
       city: 'اصفهان',
-      scity: 'نجف‌آباد',
+      town: 'نجف‌آباد',
       brand: 'هوندا',
       model: 'هوندا مدل 1',
       price: 400,
@@ -44,11 +46,12 @@ export function useProductFilters() {
       year: 1400,
       mileAge: 5500,
       auth: false,
+      seller: 'person',
     },
     {
       id: 4,
       city: 'تهران',
-      scity: 'شهران',
+      town: 'شهران',
       brand: 'هوندا',
       model: 'هوندا مدل 2',
       price: 200,
@@ -58,16 +61,19 @@ export function useProductFilters() {
       year: 1403,
       mileAge: 0,
       auth: false,
+      seller: 'company',
     },
   ])
 
   // مقادیر فیلترها
   const filters = ref({
     city: null,
+    town: [],
     brand: null,
     price: { min: null, max: null },
     mileage: { min: null, max: null },
     model: [],
+    seller: null
   })
 
   // فیلتر محصولات
@@ -77,6 +83,14 @@ export function useProductFilters() {
       if (filters.value.city && product.city !== filters.value.city) {
         return false
       }
+      // بر اساس محله
+      if (
+        Array.isArray(filters.value.town) &&
+        filters.value.town.length > 0 &&
+        !filters.value.town.includes(product.town)
+      ) {
+        return false
+      }
 
       // فیلتر بر اساس برند
       if (filters.value.brand && product.brand !== filters.value.brand) {
@@ -84,6 +98,7 @@ export function useProductFilters() {
       }
       // بر اساس مدل
       if (
+        Array.isArray(filters.value.model) &&
         filters.value.model.length > 0 &&
         !filters.value.model.includes(product.model)
       ) {
@@ -92,26 +107,29 @@ export function useProductFilters() {
 
       // فیلتر بر اساس قیمت
       if (
+        filters.value.price &&
         filters.value.price.min !== null &&
         product.price < filters.value.price.min
       ) {
         return false
       }
       if (
+        filters.value.price &&
         filters.value.price.max !== null &&
         product.price > filters.value.price.max
       ) {
         return false
       }
-
       // فیلتر بر اساس کارکرد
       if (
+        filters.value.mileage &&
         filters.value.mileage.min !== null &&
         product.mileage < filters.value.mileage.min
       ) {
         return false
       }
       if (
+        filters.value.mileage &&
         filters.value.mileage.max !== null &&
         product.mileage > filters.value.mileage.max
       ) {

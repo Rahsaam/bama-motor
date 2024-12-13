@@ -27,7 +27,7 @@
       >
         <div>
           <i class="fa-solid fa-location-dot"></i>
-          {{ product.scity }}، {{ product.city }}
+          {{ product.town }}، {{ product.city }}
         </div>
         <span> {{ product.price }} میلیون تومان </span>
       </div>
