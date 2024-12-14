@@ -27,7 +27,7 @@ watch([fromyear, tillyear], () => {
 </script>
 
 <template>
-  <div class="px-2 bg-white border-t-2">
+  <div class="px-2 bg-white border-t-2 pb-3">
     <div class="flex w-full justify-between items-center mb-5 pt-2">
       <span>سال</span>
     </div>

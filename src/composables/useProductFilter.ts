@@ -1,4 +1,8 @@
-import { ref, computed } from 'vue'
+
+import motor1 from '@/assets/images/motor1.jpg'
+import motor2 from '@/assets/images/motor2.jpg'
+import motor3 from '@/assets/images/motor3.png'
+import motor4 from '@/assets/images/motor4.jpg'
 
 export function useProductFilters() {
   // داده‌های محصولات
@@ -11,8 +15,8 @@ export function useProductFilters() {
       model: 'باجاج مدل 1',
       price: 350000000,
       mileage: 2000,
-      src: '@/assets/images/images.jpg',
-      image: true,
+      src: motor4,
+      image: false,
       year: 1403,
       mileAge: 12500,
       auth: true,
@@ -26,7 +30,7 @@ export function useProductFilters() {
       model: 'پالس مدل 1',
       price: 150000000,
       mileage: 1500,
-      src: '@/assets/images/motor1.jpg',
+      src: motor1,
       image: true,
       year: 1398,
       mileAge: 7000,
@@ -41,7 +45,7 @@ export function useProductFilters() {
       model: 'هوندا مدل 1',
       price: 400000000,
       mileage: 1000,
-      src: '@/assets/images/motor2.jpg',
+      src: motor2,
       image: true,
       year: 1400,
       mileAge: 5500,
@@ -56,7 +60,7 @@ export function useProductFilters() {
       model: 'هوندا مدل 2',
       price: 200000000,
       mileage: 3000,
-      src: '@/assets/images/motor3.png',
+      src: motor3,
       image: true,
       year: 1403,
       mileAge: 0,
@@ -75,9 +79,8 @@ export function useProductFilters() {
     year: { from: null, till: null },
     model: [],
     seller: null,
+    image: null,
   })
-
-  
 
   // فیلتر محصولات
   const filteredProducts = computed(() => {
@@ -161,10 +164,23 @@ export function useProductFilters() {
       }
 
       // فیلتر بر اساس سال انتخاب شده
-      if (filters.value.year && filters.value.year.from && product.year < filters.value.year.from) {
+      if (
+        filters.value.year &&
+        filters.value.year.from &&
+        product.year < filters.value.year.from
+      ) {
         return false
       }
-      if (filters.value.year && filters.value.year.till && product.year > filters.value.year.till) {
+      if (
+        filters.value.year &&
+        filters.value.year.till &&
+        product.year > filters.value.year.till
+      ) {
+        return false
+      }
+
+      // فیلتر بر اساس عکس دار بودن
+      if (filters.value.image && !product.image) {
         return false
       }
 
