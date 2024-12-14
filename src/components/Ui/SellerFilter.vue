@@ -15,18 +15,18 @@
 </template>
 
 <script setup>
-// داده‌های فروشنده‌ها
+
 const sellers = ref(['همه', 'شخصی', 'نمایشگاه'])
 const filters = inject('productFilters')
 
-// تابع برای انتخاب فروشنده
+
 const selectSeller = (seller) => {
   filters.value.seller = seller === 'همه' ? null : seller
 }
 </script>
 
 <style scoped>
-/** button group styles **/
+
 .btn-group {
   display: flex;
   border-radius: 1rem;

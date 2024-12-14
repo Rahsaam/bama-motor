@@ -188,9 +188,14 @@ export function useProductFilters() {
     })
   })
 
+  const getProductById = (id: number) => {
+    return products.value.find((product) => product.id === id)
+  }
+
   return {
     products,
     filters,
     filteredProducts,
+    getProductById
   }
 }
