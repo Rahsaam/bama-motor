@@ -10,7 +10,6 @@ defineProps({
 <template>
   <div class="product-detail-container max-w-5xl mt-20 mx-auto p-8">
     <div class="flex flex-col lg:flex-row items-start">
-      <!-- Product Image Section -->
       <div class="w-full lg:w-1/2 mb-6 lg:mb-0">
         <img
           :src="product.src"
@@ -19,7 +18,6 @@ defineProps({
         />
       </div>
 
-      <!-- Product Info Section -->
       <div class="lg:w-1/2 lg:pl-8">
         <h1 class="text-4xl font-bold mb-3">
           {{ product.brand }} {{ product.model }}
@@ -35,7 +33,6 @@ defineProps({
           تایید هویت: {{ product.auth ? 'بله' : 'خیر' }}
         </p>
 
-        <!-- Contact Button -->
         <div class="flex justify-start">
           <button
             class="bg-yellow-500 text-white px-6 py-3 rounded-xl hover:bg-yellow-600 transition-colors"

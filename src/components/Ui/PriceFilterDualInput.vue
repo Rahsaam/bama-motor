@@ -54,29 +54,23 @@ const props = defineProps({
   },
 })
 
-// State
 const minVal = ref(0)
 const maxVal = ref(0)
 const range = ref(null)
 
-// مقداردهی اولیه
 onMounted(() => {
   minVal.value = props.min
   maxVal.value = props.max
 })
 
-// رند کردن مقدار براساس قدم‌ها
 const stepValue = (value) => {
   if (value < 900000000) {
-    // قدم ۵۰ میلیون
     return Math.round(value / 50000000) * 50000000
   } else {
-    // قدم ۱۰۰ میلیون
     return Math.round(value / 100000000) * 100000000
   }
 }
 
-// به‌روزرسانی min
 const updateMin = () => {
   const steppedValue = stepValue(minVal.value)
   if (steppedValue >= maxVal.value) {
@@ -87,7 +81,6 @@ const updateMin = () => {
   }
 }
 
-// به‌روزرسانی max
 const updateMax = () => {
   const steppedValue = stepValue(maxVal.value)
   if (steppedValue <= minVal.value) {
@@ -98,7 +91,6 @@ const updateMax = () => {
   }
 }
 
-// Watchers برای تغییر رنج
 watch([minVal, maxVal], () => {
   const minPercent = getPercent(minVal.value)
   const maxPercent = getPercent(maxVal.value)
@@ -112,7 +104,6 @@ watch([minVal, maxVal], () => {
   filters.value.price.max = maxVal.value
 })
 
-// محاسبه درصد مقدار
 const getPercent = (value) =>
   Math.round(((value - props.min) / (props.max - props.min)) * 100)
 </script>

@@ -17,7 +17,7 @@
 
 const filters = inject('productFilters')
 
-// بررسی وجود فیلترها
+
 const hasFilters = computed(() => {
   return filters.value && Object.keys(filters.value).length > 0
 })
