@@ -72,9 +72,12 @@ export function useProductFilters() {
     brand: null,
     price: { min: null, max: null },
     mileage: { min: null, max: null },
+    year: { from: null, till: null },
     model: [],
     seller: null,
   })
+
+  
 
   // فیلتر محصولات
   const filteredProducts = computed(() => {
@@ -138,6 +141,30 @@ export function useProductFilters() {
 
       // فیلتر بر اساس فروشنده
       if (filters.value.seller && product.seller !== filters.value.seller) {
+        return false
+      }
+
+      // فیلتر بر اساس سال
+      if (
+        filters.value.year &&
+        filters.value.year.min !== null &&
+        product.year < filters.value.year.min
+      ) {
+        return false
+      }
+      if (
+        filters.value.year &&
+        filters.value.year.max !== null &&
+        product.year > filters.value.year.max
+      ) {
+        return false
+      }
+
+      // فیلتر بر اساس سال انتخاب شده
+      if (filters.value.year && filters.value.year.from && product.year < filters.value.year.from) {
+        return false
+      }
+      if (filters.value.year && filters.value.year.till && product.year > filters.value.year.till) {
         return false
       }
 

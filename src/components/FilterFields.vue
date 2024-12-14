@@ -5,6 +5,7 @@
     <div dir="ltr">
       <Ui-Price-Filter-Dual-input :min="0" :max="5000000000" />
     </div>
+    <ui-year-filter />
   </filter-container>
 </template>
 
